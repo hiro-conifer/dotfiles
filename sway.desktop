@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Swayfx
+Comment=Wayland Compositor
+Exec=/usr/local/bin/sway.sh
+Type=application
