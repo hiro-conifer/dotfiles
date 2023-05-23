@@ -21,12 +21,13 @@ sudo mv ~/dotfiles/sway.desktop /usr/share/wayland-sessions/
 
 yay -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra otf-font-awesome
 yay -S --noconfirm pipewire wireplumber pipewire-alsa pipewire-pulse pavucontrol playerctl
+yay -S --noconfirm brightnessctl
 
 yay -S --noconfirm fcitx5-mozc fcitx5-configtool
 echo 'GTK_IM_MODULE=fcitx' | sudo tee -a /etc/environment
 echo 'QT_IM_MODULE=fcitx' | sudo tee -a /etc/environment
 echo 'XMODIFIERS=@im=fcitx' | sudo tee -a /etc/environment
 
-yay -S --noconfirm thunar gvfs network-manager-applet
+yay -S --noconfirm thunar gvfs network-manager-applet pamac
 
 rm -rf ~/dotfiles/yay
