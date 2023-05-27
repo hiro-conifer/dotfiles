@@ -42,7 +42,7 @@ echo 'XMODIFIERS=@im=fcitx' | sudo tee -a /etc/environment
 yay -S --noconfirm thunar gvfs network-manager-applet pamac
 
 # Install browser
-yay -S --noconfirm Vivaldi
+yay -S --noconfirm vivaldi
 
 # Del Installer
 rm -rf ~/dotfiles/yay
