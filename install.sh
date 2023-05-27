@@ -1,8 +1,9 @@
 #!/bin/sh
 # Create Symlink
-ln -sf ~/dotfiles/.config ~/.config
-ln -sf ~/dotfiles/.local ~/.local
-ln -sf ~/dotfiles/.Xdefaults ~/.Xdefaults
+ln -sf ~/dotfiles/config ~/.config
+ln -sf ~/dotfiles/local ~/.local
+ln -sf ~/dotfiles/Xdefaults ~/.Xdefaults
+ln -sf ~/dotfiles/zshrc ~/.zshrc
 
 # Install yay
 git clone https://aur.archlinux.org/yay.git
@@ -39,6 +40,9 @@ echo 'XMODIFIERS=@im=fcitx' | sudo tee -a /etc/environment
 
 # Install file browser
 yay -S --noconfirm thunar gvfs network-manager-applet pamac
+
+# Install browser
+yay -S --noconfirm Vivaldi
 
 # Del Installer
 rm -rf ~/dotfiles/yay
