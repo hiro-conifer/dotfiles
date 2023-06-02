@@ -1,11 +1,31 @@
 for_window {
-	[window_role = "pop-up"] floating enable
-	[window_role = "bubble"] floating enable
-	[window_role = "dialog"] floating enable
-	[window_type = "dialog"] floating enable
-	[app_id="thunar"] floating enable
+	[class="^.*"] border none
+	[class="^.*"] inhibit_idle fullscreen
+
+	[window_role="pop-up"] floating enable
+	[window_role="bubble"] floating enable
+	[window_role="dialog"] floating enable
+	[window_type="dialog"] floating enable
+	[class="yad"] floating enable
+	[class="Steam"] floating enable
+	[class="Google-chrome"] floating disable
 	[title="nmtui"] floating enable
-	[class = "yad"] floating enable
-	[class = "Steam"] floating enable
-	[class = "Google-chrome"] floating disable
+	[app_id="thunar"] floating enable
+	[app_id="blueman-manager"] floating enable
+
+	[app_id="kitty" title="terminal"] {
+		floating enable
+		resize set width 50 ppt height 50 ppt
+		move position 0 px 366 px
+	}
+	[app_id="kitty" title="gotop"] {
+		floating enable
+		resize set width 50 ppt height 50 ppt
+		move position 0 px 0 px
+	}
+	[app_id="kitty" title="ranger"] {
+		floating enable
+		resize set width 50 ppt height 100 ppt
+		move position 680 px 0 px
+	}
 }
