@@ -1,54 +1,66 @@
 bindsym {
-	$mod+c exec pkill -SIGUSR1 '^waybar$'
-	$mod+Return exec $term
+	$mod+b exec $menu2
 	$mod+d exec $menu
 	$mod+e exec thunar
-	$mod+Shift+e exec $HOME/.config/sway/scripts/wlogout
-	$mod+b exec ~/.config/sway/bin/bemenu-run.sh dmenu | xargs swaymsg exec
-	$mod+Shift+r reload
-	$mod+q kill
 	$mod+f fullscreen
-	$mod+z exec vivaldi-stable
-
-	$mod+Shift+space floating toggle
+	$mod+l exec $swaylock
+	$mod+q kill
+	$mod+r reload
+	$mod+z exec $browser --gtk-version=4
 	$mod+space focus mode_toggle
-	$mod+a focus parent
+	$mod+Shift+space floating toggle
+	$mod+Shift+e exec /usr/local/bin/bemenupower.sh
+	$mod+Return exec $term -T terminal
 
-	$mod+1 workspace 1
-	$mod+2 workspace 2
-	$mod+3 workspace 3
-	$mod+4 workspace 4
-	$mod+5 workspace 5
-	XF86Launch5 workspace 1
-	XF86Launch6 workspace 2
-	XF86Launch7 workspace 3
-	XF86Launch8 workspace 4
-	XF86Launch9 workspace 5
-	$mod+Shift+1 move container to workspace 1
-	$mod+Shift+2 move container to workspace 2
-	$mod+Shift+3 move container to workspace 3
-	$mod+Shift+4 move container to workspace 4
-	$mod+Shift+5 move container to workspace 5
+	$mod+1 workspace $workspace1
+	$mod+2 workspace $workspace2
+	$mod+3 workspace $workspace3
+	$mod+4 workspace $workspace4
+	$mod+5 workspace $workspace5
+	$mod+6 workspace $workspace6
+	$mod+7 workspace $workspace7
+	$mod+8 workspace $workspace8
+	$mod+9 workspace $workspace9
+	$mod+0 workspace $workspace10
+	$mod+Shift+1 move container to workspace $workspace1
+	$mod+Shift+2 move container to workspace $workspace2
+	$mod+Shift+3 move container to workspace $workspace3
+	$mod+Shift+4 move container to workspace $workspace4
+	$mod+Shift+5 move container to workspace $workspace5
+	$mod+Shift+6 move container to workspace $workspace6
+	$mod+Shift+7 move container to workspace $workspace7
+	$mod+Shift+8 move container to workspace $workspace8
+	$mod+Shift+9 move container to workspace $workspace9
+	$mod+Shift+0 move container to workspace $workspace10
 
-	# Move your focus around
-	$mod+$left focus left
-	$mod+$down focus down
-	$mod+$up focus up
-	$mod+$right focus right
-	# Or use $mod+[up|down|left|right]
+	#$mod+$left focus left
+	#$mod+$down focus down
+	#$mod+$up focus up
+	#$mod+$right focus right
+
+	#$mod+Shift+$left move left
+	#$mod+Shift+$down move down
+	#$mod+Shift+$up move up
+	#$mod+Shift+$right move right
+
 	$mod+Left focus left
 	$mod+Down focus down
 	$mod+Up focus up
 	$mod+Right focus right
-	# Move the focused window with the same, but add Shift
-	$mod+Shift+$left move left
-	$mod+Shift+$down move down
-	$mod+Shift+$up move up
-	$mod+Shift+$right move right
-	# Ditto, with arrow keys
+
 	$mod+Shift+Left move left
 	$mod+Shift+Down move down
 	$mod+Shift+Up move up
 	$mod+Shift+Right move right
 
+	XF86MonBrightnessDown exec brightnessctl set 5%-
+	XF86MonBrightnessUp exec brightnessctl set 5%+
+
+	XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+	XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+	XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+	XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+	XF86AudioPlay exec playerctl play-pause
+	XF86AudioNext exec playerctl next
+	XF86AudioPrev exec playerctl previous
 }
