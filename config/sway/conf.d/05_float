@@ -1,0 +1,11 @@
+for_window {
+	[window_role = "pop-up"] floating enable
+	[window_role = "bubble"] floating enable
+	[window_role = "dialog"] floating enable
+	[window_type = "dialog"] floating enable
+	[app_id="thunar"] floating enable
+	[title="nmtui"] floating enable
+	[class = "yad"] floating enable
+	[class = "Steam"] floating enable
+	[class = "Google-chrome"] floating disable
+}

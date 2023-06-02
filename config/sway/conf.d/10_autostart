@@ -1,0 +1,24 @@
+exec {
+	.config/waybar/waybar.sh
+	fcitx5 -d
+	nm-applet --indicator
+	blueman-applet
+}
+
+exec --no-startup-id {
+	pamac-tray
+	$term
+	vivaldi-stable
+        swayidle -w \
+             timeout 1800 'swaylock-fancy' \
+             timeout 1860 'swaymsg "output * dpms off"' \
+             resume 'swaymsg "output * dpms on"' \
+             before-sleep 'swaylock-fancy'
+}
+
+exec_always {
+	thunar --daemon &
+	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+	~/.config/scripts/thunar.sh &
+	"systemctl --user import-environment; systemctl --user start sway-session.target"
+}
