@@ -1,12 +1,4 @@
 assign {
-	[app_id="kitty"] workspace 2
-	[class="Vivaldi-stable"] workspace 1
-	[class="Gimp"] workspace 1
-	[class="discord"] workspace 4
-	[class="Google-chrome" title="YouTube"] workspace 5
-}
-
-for_window {
-	[title="YouTube"] floating disable
-	[class="^.*"] inhibit_idle fullscreen
+	[app_id="kitty"] $workspace1
+	[app_id="vivaldi-stable"] $workspace2
 }
