@@ -38,8 +38,8 @@ echo 'GTK_IM_MODULE=fcitx' | sudo tee -a /etc/environment
 echo 'QT_IM_MODULE=fcitx' | sudo tee -a /etc/environment
 echo 'XMODIFIERS=@im=fcitx' | sudo tee -a /etc/environment
 
-# Install file browser
-yay -S --noconfirm thunar gvfs network-manager-applet pamac
+# Install etc
+yay -S --noconfirm thunar gvfs network-manager-applet pamac ranger gotop kitty
 
 # Install browser
 yay -S --noconfirm vivaldi
