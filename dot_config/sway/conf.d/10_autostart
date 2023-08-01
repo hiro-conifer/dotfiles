@@ -1,0 +1,13 @@
+exec {
+	autotiling -w 1
+	fcitx5 -d
+	mako
+	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+	/usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.8
+}
+
+exec --no-startup-id {
+	$term ranger
+	$term htop
+	$term
+}
