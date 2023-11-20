@@ -1,0 +1,12 @@
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term kitty
+set $menu wofi --show drun -c ~/.config/wofi/menu -s ~/.config/wofi/style.css
+set $browser vivaldi-stable --disk-cache-dir=/tmp
+set $lock ~/.config/sway/scripts/swaylock.sh
+set $pictures ~/Pictures/"$(date +%y%m%d-%H%M%S)".png
+include ~/.config/sway/conf.d/*
