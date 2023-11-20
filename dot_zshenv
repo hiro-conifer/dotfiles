@@ -1,0 +1,4 @@
+alias sudo='sudo '
+export ANKI_WAYLAND=1
+
+source /etc/environment
