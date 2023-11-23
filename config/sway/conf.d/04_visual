@@ -1,0 +1,22 @@
+bar {
+	swaybar_command waybar
+}
+
+gaps {
+	outer 0
+	inner 10
+}
+smart_gaps on
+default_border none
+hide_edge_borders smart
+focus_follows_mouse yes
+
+# Styling
+#class              border     background  text      indicator child_border
+client.focused      #00000088  #00000088   #11b9ff   #2e9ef4   #285577
+client.focused_inactive #00000088  #00000088   #d9d972   #484e50   #5f676a
+client.unfocused    #00000088  #00000088   #bcd9ee   #292d2e   #222222
+client.urgent       #00000088  #00000088   #f49052   #900000   #900000
+client.placeholder  #00000088  #00000088   #a0a0a0   #000000   #0c0c0c
+
+font pango:Liberation Mono Bold 10
