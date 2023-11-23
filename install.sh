@@ -13,16 +13,13 @@ sgdisk -Z $part
 sgdisk -o $part
 
 sgdisk -n 1::+300M -t 1:ef00 $part
-sgdisk -n 2::+512M -t 2:8200 $part
-sgdisk -n 3:: -t 3:8304 $part
+sgdisk -n 2:: -t 2:8304 $part
 
 mkfs.vfat -F32 ${part}1
-mkswap ${part}2
-mkfs.ext4 ${part}3
+mkfs.ext4 ${part}2
 
 # Mount
-mount ${part}3 /mnt
-swapon ${part}2
+mount ${part}2 /mnt
 mount --mkdir ${part}1 /mnt/boot
 
 # Install Kernel
@@ -104,7 +101,7 @@ echo console-mode max >> \$target
 echo editor no >> \$target
 
 target=/boot/loader/entries/arch.conf
-option=\`blkid -o export ${part}3 | grep ^PARTUUID\`
+option=\`blkid -o export ${part}2 | grep ^PARTUUID\`
 echo title Arch Linux > \$target
 echo linux /vmlinuz-linux-zen >> \$target
 echo initrd /\${ucode}.img >> \$target
@@ -133,19 +130,6 @@ makepkg -si --noconfirm
 cd ..
 rm -rf downgrade
 
-# Install Package
-yay -Syyu
-yay -S --noconfirm xorg-xwayland qt5-wayland \
-                   swayfx swaybg swayidle swaylock-effects swayimg waybar wofi autotiling bemenu-wayland mako kanshi nwg-look brightnessctl \
-                   pipewire pipewire-alsa pipewire-audio wireplumber pavucontrol playerctl \
-                   grim slurp \
-                   greetd greetd-tuigreet \
-                   bluez bluez-utils blueman kitty neofetch ranger rclone rsync thunar network-manager-applet polkit polkit-gnome \
-                   zsh unarchiver \
-                   fcitx5 fcitx5-mozc \
-                   python python-pip python-i3ipc \
-                   adobe-source-code-pro-fonts otf-cascadia-code otf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra \
-                   vivaldi google-chrome
 __EOF__
 
 # Disable NOPASSWORD 
@@ -157,18 +141,7 @@ sed -i -e 's/agreety --cmd \/bin\/sh/tuigreet -t -r --remember-session --asteris
 # Enable Service
 systemctl enable NetworkManager.service
 systemctl enable paccache.timer
-systemctl enable greetd.service
 
-# Copy Dotfiles
-mv /installer/config /home/\${user}/.config
-mv /installer/icons /home/\${user}/.icons
-mv /installer/themes /home/\${user}/.themes
-mv /installer/zshenv  /home/\${user}/.zshenv
-mv /installer/usr /
-
-# Change Permission
-chown -R \${user}:users /home/\${user}
-chmod 775 /usr/local/bin/sway.sh
 _EOF_
 
 chmod +x /mnt/$shfile
