@@ -1,0 +1,9 @@
+[Unit]
+After=network-online.target
+[Mount]
+Type=rclone
+What=[Type Cloud Service]:
+Where=[Type mount directory]
+Options=vfs-cache-mode=full,cache-dir=~/.local/var/rclone
+[Install]
+WantedBy=default.target
