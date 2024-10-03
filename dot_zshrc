@@ -3,7 +3,7 @@ local vi='nvim'
 
 #alias 
 alias cat='bat -p'
-alias ls='exa -la -icons --git'
+alias ls='exa -la --icons --git'
 alias vi=$vi
 alias vim=$vi
 alias sudo='doas '
