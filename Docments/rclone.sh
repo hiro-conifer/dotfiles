@@ -54,5 +54,5 @@ Options=vfs-cache-mode=full,cache-dir=~/.local/var/rclone\n\
 WantedBy=default.target" > ~/.config/systemd/user/${srvfile}
 
 # Enable Service
-sudo systemctl start $srvfile
-sudo systemctl enable $srvfile
+systemctl --user start $srvfile
+systemctl --user enable $srvfile
