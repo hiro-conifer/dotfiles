@@ -1,4 +1,11 @@
-#!/bin/sh
+#!/bin/bash
+exec 100>/tmp/$(basename $0 .sh)-lock
+flock -n 100
+if [ $? -ne 0 ]; then
+        echo "Error!"
+        exit 1
+fi
+
 XDG_SESSION_TYPE=wayland
 XDG_CURRENT_DESKTOP=sway
 XDG_CURRENT_SESSION=sway
