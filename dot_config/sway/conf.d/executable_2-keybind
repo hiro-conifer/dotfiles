@@ -1,0 +1,91 @@
+floating_modifier $mod normal
+
+bindsym {
+  $mod+1 workspace number 1
+  $mod+2 workspace number 2
+  $mod+3 workspace number 3
+  $mod+4 workspace number 4
+  $mod+5 workspace number 5
+  $mod+6 workspace number 6
+  $mod+7 workspace number 7
+  $mod+8 workspace number 8
+  $mod+9 workspace number 9
+  $mod+0 workspace number 10
+
+  $modSft+1 move container to workspace number 1
+  $modSft+2 move container to workspace number 2
+  $modSft+3 move container to workspace number 3
+  $modSft+4 move container to workspace number 4
+  $modSft+5 move container to workspace number 5
+  $modSft+6 move container to workspace number 6
+  $modSft+7 move container to workspace number 7
+  $modSft+8 move container to workspace number 8
+  $modSft+9 move container to workspace number 9
+  $modSft+0 move container to workspace number 10
+
+  $mod+$left focus left
+  $mod+Left focus left
+  $mod+$down focus down
+  $mod+Down focus down
+  $mod+$up focus up
+  $mod+Up focus up
+  $mod+$right focus right
+  $mod+Right focus right
+
+  $modSft+$left move left
+  $modSft+Left move left
+  $modSft+$down move down
+  $modSft+Down move down
+  $modSft+$up move up
+  $modSft+Up move up
+  $modSft+$right move right
+  $modSft+Right move right
+
+  #$mod+ 
+  $mod+a focus parent
+  $mod+b splith
+	$mod+d exec $menu
+  $mod+e exec $filer
+  #$mod+e layout toggle split
+	$mod+f fullscreen
+  $mod+r mode "resize"
+	$mod+q kill
+  $mod+s layout stacking
+  $mod+v splitv
+  $mod+w layout tabbed
+	$mod+z exec $browser
+	$mod+Return exec $term
+	$mod+space focus mode_toggle
+  $mod+minus scratchpad show 
+
+  #$modSft+ 
+  $modSft+e exec ~/.local/bin/powermenu.sh
+	$modSft+r reload
+  $modSft+space floating toggle
+  $modSft+minus move scratchpad
+
+  XF86MonBrightnessDown exec brightnessctl set 5%-
+  XF86MonBrightnessUp exec brightnessctl set 5%+
+  XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+  XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+  XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+  XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+  XF86AudioPlay exec playerctl play-pause
+  XF86AudioNext exec playerctl next
+  XF86AudioPrev exec playerctl previous
+}
+
+mode "resize" bindsym {
+  $left resize shrink width 10px
+  Left resize shrink width 10px
+  $down resize grow height 10px
+  Down resize grow height 10px
+  $up resize shrink height 10px
+  Up resize shrink height 10px
+  $right resize grow width 10px
+  Right resize grow width 10px
+  
+  $mod mode "default"
+  Return mode "default"
+  Escape mode "default"
+}

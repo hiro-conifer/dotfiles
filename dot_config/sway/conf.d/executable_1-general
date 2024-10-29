@@ -1,0 +1,34 @@
+input * {
+	xkb_options ctrl:nocaps
+	xkb_layout jp
+}
+
+#corner_radius 10
+
+blur off
+blur_xray off
+blur_passes 2
+blur_radius 5
+
+shadows on
+shadows_on_csd off
+shadow_blur_radius 20
+shadow_color #0000007F
+
+default_dim_inactive 0.2
+dim_inactive_colors.unfocused #000000FF
+dim_inactive_colors.urgent #900000FF
+
+scratchpad_minimize disable
+
+focus_on_window_activation focus
+seat * hide_cursor 4000
+default_border pixel 2
+
+gaps {
+  top 4
+  inner 10
+}
+
+bar swaybar_command waybar
+output * bg $wallpaper fill

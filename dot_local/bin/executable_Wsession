@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "Running Wayland session wrapper"
+
+sleep 0.1
+exec $@

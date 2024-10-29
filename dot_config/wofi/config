@@ -1,0 +1,9 @@
+width=250
+height=300
+allow_images=true
+image_size=24
+show=drun
+prompt=type to search ...
+insensitive=true
+allow_markup=true
+no_actions=true
