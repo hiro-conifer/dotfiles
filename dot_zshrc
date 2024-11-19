@@ -1,0 +1,60 @@
+#local 
+local vi='nvim'
+
+#alias 
+alias cat='bat -p'
+alias icat='kitty +kitten icat'
+alias ls='exa -la --icons --git'
+alias vi=$vi
+alias vim=$vi
+alias sudo='doas '
+alias sway='/usr/local/bin/sway.sh'
+alias unzip='unar'
+alias pac='yay'
+
+#export 
+export EDITOR=$vi
+export VISUAL=$vi
+export TERM=xterm-256color
+
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=$HISTSIZE
+setopt extended_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt inc_append_history
+setopt share_history
+setopt no_flow_control
+
+#setopt 
+setopt EXTENDED_GLOB
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt GLOBDOTS
+
+autoload -U compinit && compinit
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*:default' list-colors ""
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
+zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' verbose yes
+zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
+setopt complete_in_word
+setopt glob_complete
+setopt hist_expand
+setopt no_beep
+setopt numeric_glob_sort
+
+bindkey "^[[3~" delete-char
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
+
+watch="all"
+log
+
+eval "$(starship init zsh)"
+neofetch
